@@ -4,6 +4,7 @@ using System;
 using UnityEngine.VR.WSA.Input;
 using HoloToolkit.Unity;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class ShitPutter : MonoBehaviour
 {
@@ -32,8 +33,15 @@ public class ShitPutter : MonoBehaviour
 
     private void Gestures_TappedEvent(InteractionSourceKind source, int tapCount, Ray headRay)
     {
-        print("Saw Tap");
-        placeObjectFromList();
+        if (tapCount == 1)
+        {
+            print("Saw Tap");
+            placeObjectFromList();
+        }
+        else
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     void openMenu()
